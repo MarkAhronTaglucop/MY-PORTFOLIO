@@ -12,13 +12,13 @@
           backgroundColor: isDarkMode ? '#101010' : '#e8e8e8',
           color: isDarkMode ? 'white' : 'black',
         }"
-        class="fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600"
+        class="headerall fixed w-full z-20 top-0 start-0 border-b border-gray-200 dark:border-gray-600"
       >
         <div
           class="max-w-screen-xl flex flex-wrap items-center justify-between mx-auto p-4"
         >
           <p class="flex items-center space-x-3 rtl:space-x-reverse">
-            <DarkModeToggle @toggle="toggleDarkMode" />
+            <DarkModeToggle @toggle="toggleDarkMode" class="" />
             <span
               class="self-center text-2xl font-semibold whitespace-nowrap dark:text-white"
               >Markyy</span
@@ -87,37 +87,37 @@
               }"
               class="flex flex-col p-4 md:p-0 mt-4 font-medium border border-gray-100 rounded-lg bg-gray-50 md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0 md:border-0 md:bg-white dark:bg-gray-800 md:dark:bg-gray-900 dark:border-gray-700"
             >
-              <li>
+              <li class="">
                 <a
                   href="#home"
                   class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-teal-700 md:p-0 md:dark:hover:text-teal-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-sm md:text-base"
                   >Home</a
                 >
               </li>
-              <li>
+              <li class="">
                 <a
                   href="#about"
                   class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-teal-700 md:p-0 md:dark:hover:text-teal-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-sm md:text-base"
                   >About</a
                 >
               </li>
-              <li>
+              <li class="">
                 <a
                   href="#educ"
                   class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-teal-700 md:p-0 md:dark:hover:text-teal-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-sm md:text-base"
                   >Education</a
                 >
               </li>
-              <li>
+              <li class="">
                 <a
                   href="#contact"
                   class="block py-2 px-3 text-gray-900 rounded hover:bg-gray-200 md:hover:bg-transparent md:hover:text-teal-700 md:p-0 md:dark:hover:text-teal-500 dark:text-white dark:hover:bg-gray-700 dark:hover:text-white md:dark:hover:bg-transparent dark:border-gray-700 text-sm md:text-base"
                   >Contact</a
                 >
               </li>
-              <li class="flex lg:hidden xl:hidden">
+              <li class="flex lg:hidden xl:hidden head7">
                 <button
-                @click="handleDownload"
+                  @click="handleDownload"
                   type="submit"
                   class="group flex-1 bg-gray-400 text-black rounded-lg px-3 py-2 text-xs font-medium transition duration-300 ease-in-out hover:bg-white/30 flex items-center justify-center"
                 >
@@ -142,13 +142,13 @@
           </div>
         </div>
       </nav>
-      <my-header :isDarkMode="isDarkMode" />
-      <my-projs :isDarkMode="isDarkMode" />
-      <my-experience :isDarkMode="isDarkMode" />
-      <my-skill :isDarkMode="isDarkMode" />
-      <my-educ :isDarkMode="isDarkMode" />
-      <my-portfolio :isDarkMode="isDarkMode" />
-      <my-footer :isDarkMode="isDarkMode" />
+      <my-header :isDarkMode="isDarkMode" class="head4" />
+      <my-projs :isDarkMode="isDarkMode" class="head3" />
+      <my-experience :isDarkMode="isDarkMode" class="head2" />
+      <my-skill :isDarkMode="isDarkMode" class="head3" />
+      <my-educ :isDarkMode="isDarkMode" class="head2" />
+      <my-portfolio :isDarkMode="isDarkMode" class="head3" />
+      <my-footer :isDarkMode="isDarkMode" class="head2" />
     </div>
   </div>
 </template>
@@ -164,6 +164,8 @@ import MyEduc from "./views/myEducation.vue";
 import MySkill from "./views/mySkills.vue";
 import MyPortfolio from "./views/myPortfolio.vue";
 import MyFooter from "./views/myFooter.vue";
+
+import ScrollReveal from "scrollreveal";
 
 export default {
   components: {
@@ -204,8 +206,49 @@ export default {
       this.isMenuOpen = !this.isMenuOpen;
     },
   },
+  mounted() {
+    // ScrollReveal setup
+    const sr = ScrollReveal({
+      origin: "top",
+      distance: "80px",
+      duration: 2000,
+      reset: true,
+    });
+
+    sr.reveal(".headerall", { delay: 100 });
+    sr.reveal(".head2", { delay: 200 });
+    sr.reveal(".head3", { delay: 300 });
+    sr.reveal(".head4", { delay: 400 });
+    sr.reveal(".head5", { delay: 500 });
+    sr.reveal(".head6", { delay: 600 });
+    sr.reveal(".head7", { delay: 700 });
+
+    const srLeft = ScrollReveal({
+      origin: "left",
+      distance: "80px",
+      duration: 2000,
+      reset: true,
+    });
+
+    srLeft.reveal(".about1", { delay: 200 });
+    srLeft.reveal(".about3", { delay: 200 });
+
+    const srRight = ScrollReveal({
+      origin: "right",
+      distance: "80px",
+      duration: 2000,
+      reset: true,
+    });
+
+    srRight.reveal(".about2", { delay: 200 });
+    srRight.reveal(".project1", { delay: 400 });
+    srRight.reveal(".project2", { delay: 200 });
+    srRight.reveal(".project3", { delay: 50 });
+    srRight.reveal(".lastpart", { delay: 100 });
+  },
 };
 </script>
+
 
 <style>
 .min-h-screen {

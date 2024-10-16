@@ -12,7 +12,8 @@
     "@supabase/supabase-js": "^2.45.4",
     "feather-icons": "^4.29.2",
     "scrollreveal": "^4.0.9",
-    "vue": "^3.4.29"
+    "vue": "^3.4.29",
+    "vue-scroll-reveal": "^2.1.0"
   },
   "devDependencies": {
     "@vitejs/plugin-vue": "^5.0.5",
