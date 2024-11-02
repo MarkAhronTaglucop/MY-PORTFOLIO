@@ -4,15 +4,15 @@
       <div
         class="flex flex-col md:flex-row items-center justify-center text-center md:text-left"
       >
-        <div class="flex justify-center my-16 md:mr-12">
+        <div class="flex justify-center my-16">
           <img
-            src="../asset/profile1.jpg"
+            src="../asset/profile2.jpg"
             alt="Image"
-            class="rounded-lg w-5/6 h-auto"
+            class="rounded-lg w-1/2 h-auto"
           />
         </div>
 
-        <div class="md:w-2/3 md:ml-12">
+        <div class="md:w-2/3">
           <h6
             :class="{ 'text-white': isDarkMode, 'text-gray-600': !isDarkMode }"
             class="font-bold text-lg md:text-2xl uppercase mb-8"
